@@ -1,0 +1,16 @@
+{
+  "name": "amplify-client-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^4.3.0",
+    "axios": "^0.19.2",
+    "node-fetch": "^3.0.0-beta.6"
+  }
+}
