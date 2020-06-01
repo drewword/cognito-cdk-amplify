@@ -28,34 +28,6 @@ let authDetail = new amplifyCognito.AuthenticationDetails({
 });
 authenticateUser(authDetail);
 
-// Here is an alternative to the change password 1st approach
-/*
-
-cognitoidentityserviceprovider.adminInitiateAuth(
-    { AuthFlow: 'ADMIN_NO_SRP_AUTH', 
-    ClientId: 'your_own3j63rs8j16bxxxsto25db00obh', 
-    UserPoolId: 'us-east-1_DtNSUVT7n', 
-    AuthParameters: { USERNAME: 'user3', PASSWORD: 'original_password' } }, 
-    callback); 
-
-var params = {
-  ChallengeName: 'NEW_PASSWORD_REQUIRED', 
-  ClientId: 'your_own3j6...0obh',
-  ChallengeResponses: {
-    USERNAME: 'user3',
-    NEW_PASSWORD: 'changed12345'
-  },
-  Session: 'xxxxxxxxxxZDMcRu-5u...sCvrmZb6tHY'
-};
-
-cognitoidentityserviceprovider.respondToAuthChallenge(params, function(err, data) {
-  if (err) console.log(err, err.stack); // an error occurred
-  else     console.log(data);           // successful response
-});
-
-*/
-
-
 function authenticateUser(authDetail:amplifyCognito.AuthenticationDetails) {
     console.log ("Authenticating user.");
     cognitoUser.authenticateUser(authDetail, {
@@ -73,14 +45,9 @@ function authenticateUser(authDetail:amplifyCognito.AuthenticationDetails) {
         },
         newPasswordRequired: function(userAttributes, requiredAttributes) {
             console.log ("A new password is required");
-
-            // This is from stack overflow here:
-            // https://stackoverflow.com/questions/40287012/how-to-change-user-status-force-change-password/56948249#56948249
-            
             const userChallengeIdInfo = {
                 "email":"testuser@somewhere.com"
             }
-            // Get these details and call
             cognitoUser.completeNewPasswordChallenge(updatedPassword, 
                 userChallengeIdInfo, this);
         }        
