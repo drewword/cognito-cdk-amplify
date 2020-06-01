@@ -1,6 +1,16 @@
 # cognito-cdk-amplify
 Cognito Demo with Amplify Client Using the CDK
 
+# About 
+
+This AWS CDK sample does the following:
+* Creates a Cognito User Pool with implicit code grant flow.
+* Uses an AwsCustomResource to add a test user to the User Pool.
+* Creates a custom attribute within the User Pool.
+* Creates a lambda function that will return the custom attribute from the Cognito JWT.
+* Secures the lambda using Cognito and the API Gateway.
+* Demonstrates calling the endpoint using AWS Amplify Javascript client.
+
 # Build Instructions
 
 * Install node, AWS CDK, typescript.
