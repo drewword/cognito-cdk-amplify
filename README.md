@@ -43,3 +43,11 @@ Success authenticating user!
 Success calling API!!
 { sampleVal1: 'Hello API!', member_status: 'gold_member_status' }
 ```
+
+# Reference
+
+Please also see the Medium article located here:
+
+https://medium.com/@drewword/securing-lambda-with-cognito-api-gateway-amplify-and-the-cdk-b6d29bb4137f
+
+
